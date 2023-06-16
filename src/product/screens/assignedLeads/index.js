@@ -13,8 +13,6 @@ export const AssignedLeads = () => {
 
     const state = useSelector(state => state);
 
-    console.log(7777777, state)
-
     useEffect(() => {
         dispatch(getAllLeads())
     }, [])
