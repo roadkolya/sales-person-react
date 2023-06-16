@@ -60,31 +60,29 @@ export const InformationModal = ({
     const dispatch = useDispatch();
 
     return (
-        <div>
-            <Modal
-                aria-labelledby="spring-modal-title"
-                aria-describedby="spring-modal-description"
-                open={isOpen}
-                onClose={() => dispatch(closeModal())}
-                closeAfterTransition
-                slots={{backdrop: Backdrop}}
-                slotProps={{
-                    backdrop: {
-                        TransitionComponent: Fade,
-                    },
-                }}
-            >
-                <Fade in={isOpen}>
-                    <Box sx={style}>
-                        <Typography id="spring-modal-title" variant="h6" component="h2">
-                            {headerText}
-                        </Typography>
-                        <Typography id="spring-modal-description" sx={{mt: 2}}>
-                            {body}
-                        </Typography>
-                    </Box>
-                </Fade>
-            </Modal>
-        </div>
+        <Modal
+            aria-labelledby="spring-modal-title"
+            aria-describedby="spring-modal-description"
+            open={isOpen}
+            onClose={() => dispatch(closeModal())}
+            closeAfterTransition
+            slots={{backdrop: Backdrop}}
+            slotProps={{
+                backdrop: {
+                    TransitionComponent: Fade,
+                },
+            }}
+        >
+            <Fade in={isOpen}>
+                <Box sx={style}>
+                    <Typography id="spring-modal-title" variant="h6" component="h2">
+                        {headerText}
+                    </Typography>
+                    <Typography id="spring-modal-description" sx={{mt: 2}}>
+                        {body}
+                    </Typography>
+                </Box>
+            </Fade>
+        </Modal>
     );
 }

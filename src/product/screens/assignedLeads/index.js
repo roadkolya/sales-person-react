@@ -35,12 +35,14 @@ export const AssignedLeads = () => {
     return (
         <Box sx={{height: 700, width: '100%'}}>
 
-            <button onClick={() => dispatch(openModal({
-                isOpen: true,
-                title: 'yfhgfhtgf',
-                header: 'hbjhbjhb',
-                body: 'iuhijhijhiuj'
-            }))}>Open Modal</button>
+            <button onClick={() => dispatch(
+                openModal ({
+                    title: 'yfhgfhtgf',
+                    header: 'hbjhbjhb',
+                    body: 'iuhijhijhiuj'
+                })
+            )}>Open Modal
+            </button>
 
             <DataGrid
                 rows={state.leads?.list || []}
@@ -57,7 +59,7 @@ export const AssignedLeads = () => {
                 disableRowSelectionOnClick
             />
 
-            <InformationModal isOpen={state.modalData?.isOpen} headerText={state.modalData.header} />
+            <InformationModal isOpen={state.modalData?.isOpen} headerText={state.modalData?.header}/>
         </Box>
     )
 }

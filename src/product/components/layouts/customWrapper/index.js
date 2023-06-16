@@ -15,8 +15,6 @@ export const CustomWrapper = ({children}) => {
             <HeaderNavigationSection />
             {children}
             <FooterSection />
-
-            <InformationModal isOpen={state.modalData?.isOpen} />
         </>
     );
 }
