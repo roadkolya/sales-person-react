@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import store from "./product/business/redux";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {PRIVATE_ROUTES, PUBLIC_ROUTES} from "./product/business/routes/routes";
+import {Provider} from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+
+    const router = createBrowserRouter([...PUBLIC_ROUTES, ...PRIVATE_ROUTES]);
+    return (
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
+    );
 }
-
-export default App;
