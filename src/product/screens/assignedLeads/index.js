@@ -25,6 +25,7 @@ export const AssignedLeads = () => {
                 alignItems: 'center'
             }}>
                 <CircularProgress/>
+
             </Box>
         )
     }
