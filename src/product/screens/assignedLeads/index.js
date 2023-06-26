@@ -37,7 +37,10 @@ export const AssignedLeads = () => {
                 openModal ({
                     title: 'yfhgfhtgf',
                     header: 'hbjhbjhb',
+
                     body: 'iuhijhijhiuj'
+
+
                 })
             )}>Open Modal
             </button>
