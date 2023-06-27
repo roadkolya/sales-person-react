@@ -12,6 +12,7 @@ export const AssignedLeads = () => {
     const dispatch = useDispatch()
 
     const state = useSelector(state => state);
+    console.log(state)
 
     useEffect(() => {
         dispatch(getAllLeads())
@@ -36,19 +37,19 @@ export const AssignedLeads = () => {
             <button onClick={() => dispatch(
                 openModal ({
                     title: 'yfhgfhtgf',
-                    header: 'hbjhbjhb',
+                    header: 'rte',
                     body: 'iuhijhijhiuj'
                 })
             )}>Open Modal
             </button>
 
             <DataGrid
-                rows={state.leads?.list || []}
-                columns={columns}
+                rows={ state.leads?.list || [] }
+                columns={ columns }
                 initialState={{
                     pagination: {
                         paginationModel: {
-                            pageSize: 20,
+                            pageSize: 5,
                         },
                     },
                 }}

@@ -1,12 +1,12 @@
-import {LOADING_FAILURE, LOADING_SUCCESS} from "../loading/types";
+import {LOADING_HIDE, LOADING_SHOW} from '../loading/types';
 import {GET_LEADS_SUCCESS} from "./types";
-import {fetchApi} from "../../../../services/api";
-import * as configs from "../../../../configs";
+import {fetchApi} from '../../../../services/api';
+import * as configs from '../../../../configs';
 import * as leadsMock from '../../../mocks/leads.json';
 
 export const getAllLeads = () => async dispatch => {
     dispatch({
-        type: LOADING_SUCCESS
+        type: LOADING_SHOW
     })
 
     const response = await fetchApi({
@@ -16,7 +16,7 @@ export const getAllLeads = () => async dispatch => {
     });
 
     dispatch({
-        type: LOADING_FAILURE
+        type: LOADING_HIDE
     })
 
     dispatch({

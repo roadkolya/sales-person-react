@@ -1,14 +1,16 @@
+import {Button} from "@mui/material";
+
 export const columns = [
     {
-        field: 'jobNumber',
+        field: 'Job_Number',
         headerName: 'Job Number',
         type: 'string',
         width: 150,
         editable: true,
     },
     {
-        field: 'clientName',
-        headerName: 'Client Name',
+        field: 'Last_Name',
+        headerName: 'Last Name',
         type: 'string',
         width: 150,
         editable: true,
@@ -63,8 +65,8 @@ export const columns = [
         editable: true,
     },
     {
-        field: 'compaigns',
-        headerName: 'Compaigns',
+        field: 'campaign',
+        headerName: 'Campaign',
         type: 'string',
         width: 110,
         editable: true,
@@ -77,4 +79,21 @@ export const columns = [
         width: 160,
         valueGetter: (params) => `${params.row.unread || ''}`,
     },
+    {
+        field: 'Action',
+        width: 160,
+
+        sortable: false,
+        renderCell: (cellValues) => {
+            return (
+                <Button
+
+                    onClick={ () => console.log(cellValues.row) }
+                >
+                    Add to
+                </Button>
+
+            );
+        }
+    }
 ];
