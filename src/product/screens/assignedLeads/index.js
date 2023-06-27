@@ -12,7 +12,6 @@ export const AssignedLeads = () => {
     const dispatch = useDispatch()
 
     const state = useSelector(state => state);
-    console.log(state)
 
     useEffect(() => {
         dispatch(getAllLeads())
@@ -37,8 +36,11 @@ export const AssignedLeads = () => {
             <button onClick={() => dispatch(
                 openModal ({
                     title: 'yfhgfhtgf',
-                    header: 'rte',
+                    header: 'hbjhbjhb',
+
                     body: 'iuhijhijhiuj'
+
+
                 })
             )}>Open Modal
             </button>
