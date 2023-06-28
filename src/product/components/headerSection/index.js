@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, {useState} from 'react';
+import {alpha, styled} from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,11 +10,15 @@ import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import './style.css';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -56,9 +60,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+function stringAvatar(name) {
+    return {
+        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    };
+}
 export const HeaderSection = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -83,6 +92,7 @@ export const HeaderSection = () => {
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
+            sx={{ mt: '40px'}}
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: 'top',
@@ -97,8 +107,12 @@ export const HeaderSection = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>SMS report</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>KPI report accpunt manager</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>Availability calendar</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>Filter list</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>CA availability calendar</MenuItem>
+            <MenuItem className="settings_menu_item" onClick={handleMenuClose}>Logout</MenuItem>
         </Menu>
     );
 
@@ -156,27 +170,33 @@ export const HeaderSection = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar style={{backgroundColor: '#303336'}} position="static">
-                <Toolbar>
+            <AppBar style={{backgroundColor: '#2B3033'}} position="static">
+                <Toolbar style={{paddingRight:'0px'}}>
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="open drawer"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2}}
                     >
                         <MenuIcon />
                     </IconButton>
                     <Typography
-                        color='#3775EE'
-                        variant="h6"
+                        color='#007BFF'
+                        variant="h2"
                         noWrap
                         component="div"
+                        fontWeight="600"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        ROADWAY MOVING
+                        Roadway Moving
                     </Typography>
-                    <Box sx={{ flexGrow: 1 }} />
+
+                    <Box sx={{ flexGrow: 1 }} >
+                        <Typography variant="h2" color="inherit" component="div" align="center" fontWeight="400">
+                            KPI Indicators
+                        </Typography>
+                    </Box>
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="error">
@@ -194,15 +214,18 @@ export const HeaderSection = () => {
                         </IconButton>
                         <IconButton
                             size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
+                            aria-label="show 17 new notifications"
                             color="inherit"
+                            onClick={handleProfileMenuOpen}
                         >
-                            <AccountCircle />
+                            <Typography variant="h6" color="inherit" component="div" align="center" fontWeight="500" textTransform="uppercase" >
+                                Michael Anderson
+                            </Typography>
+                            <KeyboardArrowDownIcon />
                         </IconButton>
+                            <Stack direction="row" spacing={2} >
+                                <Avatar sx={{ bgcolor: '#007BFF' }}  variant="square" {...stringAvatar('Michael Anderson')} />
+                            </Stack>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton

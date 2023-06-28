@@ -14,7 +14,6 @@ export const CustomWrapper = ({children}) => {
             <HeaderSection />
             <HeaderNavigationSection />
             {children}
-            <FooterSection />
         </>
     );
 }

@@ -2,10 +2,11 @@ import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-import {useSpring, animated} from '@react-spring/web';
+import {animated, useSpring} from '@react-spring/web';
 import {useDispatch} from "react-redux";
 import {closeModal} from "../../../business/redux/reducers/modal/actions";
+import './style.css';
+
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const {
@@ -41,28 +42,26 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 
 const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
+    top: '0',
+    right: '0',
+    width: '50%',
+    maxWidth:'780px',
+    height: '100%',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+    boxShadow: '-10px 0 30px rgba(0,0,0,0.3)',
+    p: 0,
 };
 
 export const InformationModal = ({
                                      isOpen = false,
-                                     title = '',
-                                     headerText = '',
-                                     body = ''
+                                     content = '',
                                  }) => {
     const dispatch = useDispatch();
 
     return (
         <Modal
-            aria-labelledby="spring-modal-title"
-            aria-describedby="spring-modal-description"
+            aria-labelledby="filter-modal-title"
+            aria-describedby="filter-modal-description"
             open={isOpen}
             onClose={() => dispatch(closeModal())}
             closeAfterTransition
@@ -75,14 +74,10 @@ export const InformationModal = ({
         >
             <Fade in={isOpen}>
                 <Box sx={style}>
-                    <Typography id="spring-modal-title" variant="h6" component="h2">
-                        {headerText}
-                    </Typography>
-                    <Typography id="spring-modal-description" sx={{mt: 2}}>
-                        {body}
-                    </Typography>
+                    {content}
                 </Box>
             </Fade>
         </Modal>
     );
 }
+

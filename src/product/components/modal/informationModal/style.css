@@ -1,0 +1,93 @@
+.Filter_Tab .filter_tab_btn{
+    color: #2B3033;
+    box-shadow:0 7px 15px rgba(0,0,0,0.03);
+    border-radius:10px;
+    min-height:40px;
+    text-align: left;
+    align-items: start;
+    font-weight:400;
+    font-size:15px;
+    line-height:30px;
+    background:#fff;
+    text-transform:capitalize
+}
+.Filter_Tab .MuiTab-root.Mui-selected {
+    color: #2B3033 !important;
+    background: #F0F7FF;
+    border: 1px solid #007BFF;
+}
+
+.date_picker_field{
+    width: 100%;
+}
+.date_picker_field label.MuiInputLabel-shrink{
+    font-size: 11px;
+    line-height: 15px;
+    color: #007BFF;
+    padding: 5px;
+    top: 0;
+    left:12px;
+    text-transform: uppercase;
+    transform: translate(4px, -12px) scale(1);
+}
+.date_picker_field fieldset{
+    padding: 0 15px;
+    border-color: #D5D7DC;
+}
+.date_picker_field label{
+    font-size: 15px;
+    line-height: 25px;
+    color: #2B3033;
+    padding: 0px 5px;
+    top:-5px;
+}
+.date_picker_field .MuiInputBase-input{
+    font-size: 15px;
+    line-height: 25px;
+    color: #2B3033;
+    padding: 14px 20px;
+}
+.date_picker_field .MuiOutlinedInput-root{
+    border-radius: 50px;
+}
+.date_picker_field .MuiOutlinedInput-root.Mui-focused fieldset{
+    border-color: #007BFF;
+    border-width: 1px;
+    background: rgba(0,123,255,0.02);
+}
+#filter-modal-description .datePicker_filter_btn{
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #2B3033;
+    background: #F4F5F8;
+    border:1px solid #E0E3EB;
+    border-radius: 50px;
+    text-transform: inherit;
+    padding: 4px 8px;
+}
+.MuiModal-root .cancle_modal_btn{
+    text-transform:capitalize;
+    font-size:14px;
+    color:#2B3033;
+    background:#fff;
+    font-weight:500;
+    box-shadow:0 3px 6px rgba(0,0,0,0.09)
+}
+.MuiModal-root .view_results_btn{
+    text-transform:capitalize;
+    font-size:14px;
+    background:#007BFF;
+    font-weight:500;
+    box-shadow:0 3px 6px rgba(0,0,0,0.09);
+    opacity:0.3
+}
+.MuiModal-root .remove_all_filters{
+    text-transform:capitalize;
+    font-size:13px;
+    line-height: 20px;
+    font-weight:500;
+    border-radius: 50px;
+    border-color: #FF4C86;
+    color: #FF4C86;
+}
