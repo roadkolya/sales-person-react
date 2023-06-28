@@ -37,6 +37,7 @@ export const AssignedLeads = () => {
         )
     }
 
+
     return (
         <Box sx={{width: '100%,'}}>
             <Container  maxWidth="false"  style={{backgroundColor: '#EBECF0',padding:'5px 8px'}} >
