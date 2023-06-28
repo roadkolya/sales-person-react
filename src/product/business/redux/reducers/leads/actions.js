@@ -12,7 +12,7 @@ export const getAllLeads = () => async dispatch => {
     const response = await fetchApi({
         url: configs.api.baseUrl + configs.api.leads,
         method: "GET",
-        mockData: {...leadsMock}
+        // mockData: {...leadsMock}
     });
 
     dispatch({

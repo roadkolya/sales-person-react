@@ -29,7 +29,6 @@ export const AssignedLeads = () => {
         )
     }
 
-
     return (
         <Box sx={{height: 700, width: '100%'}}>
 
@@ -37,10 +36,7 @@ export const AssignedLeads = () => {
                 openModal ({
                     title: 'yfhgfhtgf',
                     header: 'hbjhbjhb',
-
                     body: 'iuhijhijhiuj'
-
-
                 })
             )}>Open Modal
             </button>

@@ -1,4 +1,11 @@
 export const api = {
     baseUrl: 'https://sales-person.loc/api',
-    leads: '/leads'
+    leads: {
+        index: '/leads',
+    },
+
+    campaign : {
+        index: '/campaign',
+        start: '/campaign/start/'
+    }
 }
