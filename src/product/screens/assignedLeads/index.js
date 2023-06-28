@@ -6,18 +6,16 @@ import {Box, CircularProgress, Container, Grid} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid";
 import {columns} from './constants';
 import {InformationModal} from "../../components";
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import MdPhone from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 import FilterIcon from '@mui/icons-material/Filter';
 import ViewColumnIcon from '@mui/icons-material/ViewColumn';
+import Badge from '@mui/material/Badge';
+import {FilterContent, CallCampaignContent} from "../../components/modal/informationModal/contents";
 
 export const AssignedLeads = () => {
-
     const dispatch = useDispatch()
 
     const state = useSelector(state => state);
@@ -45,55 +43,33 @@ export const AssignedLeads = () => {
                     <Grid item container direction="row" xs={9} sx={{p:1}} alignItems="center" >
                         <Button sx={{mr:1}} className="Campaign_btn" onClick={() => dispatch(
                             openModal ({
-                                title: 'Filters',
-                                headerText: 'Filters',
-                                body: ''
+                                content: <CallCampaignContent />
                             })
                         )}><MdPhone sx={{mr:1,fontSize:'20px'}}/> call campaign
                         </Button>
-                        <Button sx={{mr:1}} className="Campaign_btn" onClick={() => dispatch(
-                            openModal ({
-                                title: 'call campaign',
-                                headerText: '',
-                                body: 'text'
-                            })
-                        )}><MailIcon sx={{mr:1,fontSize:'20px'}}/> sms campaign
+                        <Button sx={{mr:1}} className="Campaign_btn"><MailIcon sx={{mr:1,fontSize:'20px'}}/> sms campaign
                         </Button>
-                        <Button sx={{mr:1}} className="Campaign_btn" onClick={() => dispatch(
-                            openModal ({
-                                title: 'call campaign',
-                                header: '',
-                                body: 'text'
-                            })
-                        )}><MailIcon sx={{mr:1,fontSize:'20px'}}/> email campaign
+                        <Button sx={{mr:1}} className="Campaign_btn"><MailIcon sx={{mr:1,fontSize:'20px'}}/> email campaign
                         </Button>
                         <Typography variant="h6" color="#A8ADB0" component="span" fontStyle="italic" fontWeight="400" >
                             To create a campaign, filter the leads first
                         </Typography>
                     </Grid>
                     <Grid item container direction="row" xs={3} sx={{p:1}} alignItems="center" justifyContent="flex-end">
-                        <Button sx={{mr:1}} className="Campaign_btn" onClick={() => dispatch(
-                            openModal ({
-                                title: 'call campaign',
-                                header: '',
-                                body: 'text'
-                            })
-                        )}><ViewColumnIcon sx={{mr:1,fontSize:'20px'}}/> columns
+                        <Button sx={{mr:1}} className="Campaign_btn" ><ViewColumnIcon sx={{mr:1,fontSize:'20px'}}/> columns
                         </Button>
                         <Button sx={{mr:0}} className="Campaign_btn" onClick={() => dispatch(
                             openModal ({
-                                title: 'call campaign',
-                                header: '',
-                                body: 'text'
+                                content: <FilterContent />
                             })
-                        )}><FilterIcon sx={{mr:1,fontSize:'20px'}}/> filters
+                        )}><Badge badgeContent={4} color="primary" sx={{mr:2}} className="filter_count"><FilterIcon sx={{mr:1,fontSize:'20px'}}/></Badge> filters
                         </Button>
                     </Grid>
                 </Grid>
             </Container>
 
             <DataGrid
-                rows={state.leads?.list || []}
+                rows={state.leads?.default?.list || []}
                 columns={columns}
                 initialState={{
                     pagination: {
@@ -107,7 +83,7 @@ export const AssignedLeads = () => {
                 disableRowSelectionOnClick
             />
 
-            <InformationModal isOpen={state.modalData?.isOpen} headerText={state.modalData?.header}/>
+            <InformationModal isOpen={state.modalData?.isOpen} content={state.modalData?.content}/>
         </Box>
     )
 }
