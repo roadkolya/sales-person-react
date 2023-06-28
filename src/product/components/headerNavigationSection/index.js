@@ -8,28 +8,22 @@ export const HeaderNavigationSection = () => {
             sx={{
                 width: "100%",
                 height: "auto",
-                backgroundColor: "#F4F5F7",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
+                backgroundColor: "#F4F5F8",
+                boxShadow:'0 7px 15px rgba(0,0,0,0.03)',
+
             }}
         >
             <Container maxWidth="lg">
-                <Grid container direction="row" justifyContent="space-between">
-                    <Grid item xs={3}></Grid>
-                    <Grid item xs={4}>
-                        <Grid container direction="row" justifyContent="space-between">
-                            <Typography color="black" variant="h5">
-                                <NavLink to={'/assigned-leads'}>Leads</NavLink>
-                            </Typography>
-                            <Typography color="black" variant="h5">
-                                <NavLink to={'/campaigns'}>Campaigns</NavLink>
-                            </Typography>
-                            <Typography color="black" variant="h5">
-                                <NavLink to={'/templates'}>Templates</NavLink>
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={3}></Grid>
+                <Grid container direction="row" justifyContent="center">
+                    <Typography color="#2B3033" variant="h3" fontWeight="500" textTransform="uppercase" className="tab_link">
+                        <NavLink to={'/assigned-leads'}>Leads</NavLink>
+                    </Typography>
+                    <Typography color="#2B3033" variant="h3" fontWeight="500" textTransform="uppercase" className="tab_link">
+                        <NavLink to={'/campaigns'}>Campaigns</NavLink>
+                    </Typography>
+                    <Typography color="#2B3033" variant="h3" fontWeight="500" textTransform="uppercase" className="tab_link">
+                        <NavLink to={'/templates'}>Templates</NavLink>
+                    </Typography>
                 </Grid>
             </Container>
         </Box>
