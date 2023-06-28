@@ -11,7 +11,6 @@ export const fetchApi = async ({
                                    method = 'POST'
                                }) => {
     let response;
-
     if (!url && !mockData) return null;
 
     if (mock.useMockData && mockData) {

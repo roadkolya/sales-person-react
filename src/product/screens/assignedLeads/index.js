@@ -16,6 +16,7 @@ import Badge from '@mui/material/Badge';
 import {FilterContent, CallCampaignContent} from "../../components/modal/informationModal/contents";
 
 export const AssignedLeads = () => {
+
     const dispatch = useDispatch()
 
     const state = useSelector(state => state);
