@@ -2,10 +2,10 @@ import {useDispatch} from "react-redux";
 import * as React from "react";
 
 export const CallCampaignContent = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     return (
-        <jkj>
+        <>
             call
-        </jkj>
+        </>
     )
 }
