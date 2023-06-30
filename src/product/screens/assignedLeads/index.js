@@ -71,7 +71,7 @@ export const AssignedLeads = () => {
             </Container>
 
             <DataGrid
-                rows={state.leads?.default?.list || []}
+                rows={state.leads?.list || []}
                 columns={columns}
                 initialState={{
                     pagination: {

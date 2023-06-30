@@ -10,7 +10,7 @@ export const getAllLeads = () => async dispatch => {
     })
 
     const response = await fetchApi({
-        url: configs.api.baseUrl + configs.api.leads,
+        url: configs.api.baseUrl + configs.api.leads.index,
         method: "GET",
         // mockData: {...leadsMock}
     });
